@@ -167,15 +167,15 @@ signal start : std_logic;
       
     
     
-     m2: bxor port map (A,B,al2);
-    m3: band port map (A,B,al3);
-    m4: bor port map (A,B,al4);
-     m6: Add port map(A,B,cin,al6,co1); 
+      m2: bxor port map (A,B,al2);
+      m3: band port map (A,B,al3);
+      m4: bor port map (A,B,al4);
+      m6: Add port map(A,B,cin,al6,co1); 
       m7: Substract port map(A,B,cin,al7,bo);
       m8: Multiply port map(A(7 downto 0),B(7 downto 0),al8,'1',clk,done);
       m9 : shiftleftlogical port map (A,B,al9);
       m10:slt port map (A,B,zst);
-        m1 : shiftrightlogical port map (A,B,al1);
+      m1 : shiftrightlogical port map (A,B,al1);
       m5 : shiftr port map (A,B,al5);
           
         
@@ -192,28 +192,28 @@ signal start : std_logic;
     begin
       
       case op is
-    when "0000"  => if (func = "000") then 
+    when "0000"  => if (func = "000") then    --add
        AluO <= al6;
      end if;
-     when "0001"  =>  if (func = "001") then 
+     when "0001"  =>  if (func = "001") then    --sub
      AluO <= al7; 
    end if;
-     when "0010"  =>  if (func = "010") then 
+     when "0010"  =>  if (func = "010") then    --and
        AluO <= al3;
        end if;
-     when "0011"  =>   if (func = "011") then 
+     when "0011"  =>   if (func = "011") then   --or
      AluO <= al4;
      end if;
-     when "0100"  =>   if (func = "100") then 
+     when "0100"  =>   if (func = "100") then  --xor
       AluO <= al2;
       end if;
-     when "0101"  =>   if (func = "101") then 
+     when "0101"  =>   if (func = "101") then  --nor
       AluO <= al8;
       end if;
-     when "0110"  =>    if (func = "110") then 
+     when "0110"  =>    if (func = "110") then  --slt
       st <= zst;
       end if;
-     when "0111"  =>   if (func = "111") then 
+     when "0111"  =>   if (func = "111") then  --jr
       AluO <= B;
     end if;
      when "1000"  =>   

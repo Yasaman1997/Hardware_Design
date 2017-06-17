@@ -11,12 +11,14 @@ ENTITY PC IS
  );
 END PC;
 
- ARCHITECTURE dataflow OF PC IS BEGIN
-PROCESS (clk,EnablePC,rst) BEGIN
+ ARCHITECTURE dataflow OF PC IS 
+ BEGIN
+PROCESS (clk,EnablePC,rst)
+ BEGIN
 
 
 
-if (CLK'event and CLK = '1') and EnablePC = '1' then
+if (CLK'event and CLK = '1') and  EnablePC = '1'  then
 			OUTPUT <= INPUT;
 		end if;
 		

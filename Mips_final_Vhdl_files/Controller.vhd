@@ -52,7 +52,8 @@ architecture Behavioral of Controller is
     signal func : std_logic_vector (2 downto 0);
 
 begin
-
+  
+--process1
  process(clk,rst)
     begin
           
@@ -66,6 +67,7 @@ begin
       end if;
     end process;
 
+--process2
 	  process (current_state,instruction,Zero,opcode,func,lt,lteq,gt,gteq)      
           
           begin 
@@ -73,6 +75,7 @@ begin
     
       case current_state is
 		
+		--reset
 		when reset => 
 		
 		reset_pc <= '1' ; 
@@ -88,6 +91,7 @@ begin
 		
 		next_state <= fetch;
 		
+		--fetch
 	when fetch => 
 
 		reset_pc <= '0' ; 
@@ -105,13 +109,10 @@ begin
 		
 		next_state <= decode;
 
-			
-
-	
 	
 		
 
-
+--decode
 	
 	when decode => 
 	
@@ -120,9 +121,6 @@ opcode <= instruction(15 downto 12) ;
 func <= instruction(2 downto 0) ; 
 
 
-	
-	
-	
 	
 		EnablePc <= '0' ; 
 		reset_pc <= '0' ;
@@ -138,7 +136,7 @@ func <= instruction(2 downto 0) ;
 		next_state <= execute;
 
 
-
+--execute
 	
 when execute => 
 	
@@ -210,9 +208,9 @@ when "100" =>
 	EnablePC <= '1'; 
 	next_state <= fetch;
 	
-	--Mult
-		
-when "101" => 
+	
+	--Multiply
+		when "101" => 
 	AluSrc <='0' ; 
 	OP <= "0101";
 	aluop <= "101";
@@ -222,10 +220,13 @@ when "101" =>
 	EnablePC <= '1'; 
 	next_state <= fetch;
 	
+	
+	
+	
+	
 	--slt
 		
-	
-when "110" => 
+		when "110" => 
 	AluSrc <='0' ; 
 	OP <= "0110";
 	aluop <= "110";
@@ -236,24 +237,21 @@ when "110" =>
 	next_state <= fetch;
 	
 	
-	--jr
-		
-when "111" => 
+	--jr(jump)
+		when "111" => 
 	AluSrc <='0' ; 
 	OP <= "0111";
 	aluop <= "111";
 	MemToReg <='1';
 	RegWrite <= '1' ;
-	PCSrc <= "10";
+	PCSrc <= "10";  --jump
 	EnablePc <= '1';
 	
 	
 	next_state <= fetch;
 	
+	--else
 	when others => null;
-	
-	
-	
 	
 	
 	end case;
@@ -264,8 +262,10 @@ when "111" =>
 	--Itype Instructions
 	
 	case  instruction(15 downto 12) is 
+	  
+
 	when "0001" => 
-	--add i 
+		  --add i 
 	AluSrc <= '1' ; 
 	AluOp<= "000";
 	MemToReg  <='1';
@@ -276,24 +276,29 @@ when "111" =>
 	
 		when "0010" => 
 		--and
-			AluSrc <='1' ; 
+	AluSrc <='1' ; 
 	AluOp<= "010";
 	MemToReg  <='1';
 	RegWrite <='1';
 	
 	EnablePC <= '1'; 
 	next_state <= fetch;
+	
+	
 		when "0011" => 
 		--or
-			AluSrc <= '1' ; 
+	AluSrc <= '1' ; 
 	AluOp<= "011";
 	MemToReg  <='1';
 	RegWrite <='1';
 	
 	EnablePC <= '1'; 
 	next_state <= fetch;
+
+-- shift instructions,are a part of I-Type instructions
+	
 		when "0100" => 
-		--shift left logical 
+		--shift left logical (sll)
 		RegDst <= '0';
 		ALUSrc <= '1';
 		OP<= "1000";
@@ -332,10 +337,10 @@ when "111" =>
 	next_state <= fetch;
 	
 		when "0111" => 
-		--load
+		--load (lhw)
 		
-	RegDst <= '0' ; 
-	AluSrc <= '1';
+	  RegDst <= '0' ; 
+	  AluSrc <= '1';
 		OP <= "0000";
 		ALUOp <= "000";
 		MemRead <= '1';
@@ -353,7 +358,7 @@ when "111" =>
 	next_state <= fetch;
 		
 		when "1000" => 
-		--store
+		--store(shw)
 		RegWrite <= '0';
 		AluSrc <= '1';
 		AluOp <= "000";
@@ -361,6 +366,9 @@ when "111" =>
 		
 	--	EnablePC <= '1'; 
 	next_state <= fetch;
+		
+		
+		--branch instructions are in I_type
 		
 		when "1001" => 
 		--Branch if equal
@@ -448,15 +456,12 @@ when "111" =>
 	end case;
 	
 	
+	--extra , dont mind
 	when executeload1=> 
 		
-Memread <= '1'; 
-	PCSrc<= "00";
-
-
-
-
-		reset_pc <= '0' ; 
+    Memread <= '1'; 
+    PCSrc<= "00";
+    reset_pc <= '0' ; 
 		RegDst <= '0' ; 
 		RegWrite <= '1' ;
 		ALUSrc <= '0' ; 

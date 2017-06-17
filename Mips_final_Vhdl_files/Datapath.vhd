@@ -15,6 +15,7 @@ END Datapath;
 
  ARCHITECTURE dataflow OF Datapath IS
  
+ --instruction memory
 component InstructionMemory is
 	port (address : in std_logic_vector (15 downto 0);
 	  IMload : in std_logic;
@@ -23,6 +24,7 @@ component InstructionMemory is
 		);
 end component;
 
+--pc
 component PC IS
  PORT (
  EnablePC : IN std_logic;
@@ -33,6 +35,7 @@ component PC IS
  );
 END component;
 
+--adder1
 component Adder1 is
     Port ( num1 : in  STD_LOGIC_VECTOR (15 downto 0);
            num2 : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -40,7 +43,7 @@ component Adder1 is
 			  			  
 end component;
   
-
+--mux2
 component mux_2 is
     Port ( SEL : in  STD_LOGIC;
            A   : in  STD_LOGIC_VECTOR (2 downto 0);
@@ -48,6 +51,8 @@ component mux_2 is
            X   : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 
+
+--register file
 component registerfile is
 	
 	port (readaddr1, readaddr2 : in std_logic_vector (2 downto 0);
@@ -57,11 +62,13 @@ component registerfile is
 		O1, O2 : out std_logic_vector (15 downto 0));
 end component;
 
+--sign extend
 component Sign_Extend is
     Port ( Input : in  STD_LOGIC_VECTOR (5 downto 0);
            Output : out  STD_LOGIC_VECTOR (15 downto 0));
 end component;
 
+--alu
 component ArithmeticUnit is
   port (
     A:in std_logic_vector(15 downto 0);
@@ -78,6 +85,8 @@ component ArithmeticUnit is
   );
 end component;
 
+
+--data memory
 component  DataMemory is
   
 port (
@@ -90,6 +99,8 @@ port (
      );
 end  component;
 
+
+--shift
 component shiftl is
   port(
     b :  in std_logic_vector(15 downto 0);
@@ -98,6 +109,8 @@ component shiftl is
   
 end component;
 
+
+--mux16
 component mux16 is
     Port ( SEL : in  STD_LOGIC;
            A   : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -107,6 +120,7 @@ end component;
 
 
 
+--comparator
 component Compare is
   
   
@@ -124,7 +138,7 @@ end component;
 
 
 
-
+--mux_16_4
 component mux16_4 is
     Port ( SEL : in  STD_LOGIC_vector (1 downto 0);
            A   : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -135,6 +149,7 @@ component mux16_4 is
 end component;
 
 
+--controller
 component Controller is
 port (
 instruction : in std_logic_vector(15 downto 0);
@@ -150,7 +165,7 @@ EnablePC,reset_pc,RegDst,RegWrite,ALUSrc,MemWrite,MemRead,MemToReg,IMload: out s
 end component;
 
 signal EnablePC,reset_pc,RegDst,RegWrite,ALUSrc,setl,Zero,Cout,MemWrite,MemRead,MemToReg,jr,lt,gt,lteq,gteq,jmpEn,IMload : std_logic;
-signal  pcout,sum,writedata,A,B,se_out,Alu_in2,result,Memout,sho,add_s,tmp : std_logic_vector(15 downto 0);
+signal pcout,sum,writedata,A,B,se_out,Alu_in2,result,Memout,sho,add_s,tmp : std_logic_vector(15 downto 0);
 signal WR : std_logic_vector(2 downto 0);
 signal pc_in : std_logic_vector (15 downto 0);
 signal ALUOp : std_logic_vector(0 to 2);

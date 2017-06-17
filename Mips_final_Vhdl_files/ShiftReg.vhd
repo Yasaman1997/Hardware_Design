@@ -38,6 +38,6 @@ begin
   end if;
   
 end process;
-Do <= din;
+Do <= Din;
 end architecture;
 
