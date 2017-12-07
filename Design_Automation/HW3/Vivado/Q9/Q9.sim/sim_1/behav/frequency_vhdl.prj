@@ -1,0 +1,5 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  "../../../Q9.srcs/sources_1/new/frequency.vhd"
+
+# Do not sort compile order
+nosort

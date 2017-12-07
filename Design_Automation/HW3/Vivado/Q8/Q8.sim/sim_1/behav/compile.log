@@ -1,0 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/iGreen/Desktop/DESIGN AUTOMATION/HW3/vivado/Q8/Q8.srcs/sources_1/new/light.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity light
+ERROR: [VRFC 10-1412] syntax error near ; [C:/Users/iGreen/Desktop/DESIGN AUTOMATION/HW3/vivado/Q8/Q8.srcs/sources_1/new/light.vhd:35]
+ERROR: [VRFC 10-1412] syntax error near ) [C:/Users/iGreen/Desktop/DESIGN AUTOMATION/HW3/vivado/Q8/Q8.srcs/sources_1/new/light.vhd:36]
+ERROR: [VRFC 10-1412] syntax error near ) [C:/Users/iGreen/Desktop/DESIGN AUTOMATION/HW3/vivado/Q8/Q8.srcs/sources_1/new/light.vhd:37]
+ERROR: [VRFC 10-1412] syntax error near ) [C:/Users/iGreen/Desktop/DESIGN AUTOMATION/HW3/vivado/Q8/Q8.srcs/sources_1/new/light.vhd:38]
+ERROR: [VRFC 10-1504] unit light ignored due to previous errors [C:/Users/iGreen/Desktop/DESIGN AUTOMATION/HW3/vivado/Q8/Q8.srcs/sources_1/new/light.vhd:34]
+INFO: [VRFC 10-240] VHDL file C:/Users/iGreen/Desktop/DESIGN AUTOMATION/HW3/vivado/Q8/Q8.srcs/sources_1/new/light.vhd ignored due to errors

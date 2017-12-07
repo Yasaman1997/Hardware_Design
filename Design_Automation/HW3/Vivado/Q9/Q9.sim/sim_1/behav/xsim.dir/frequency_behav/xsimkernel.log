@@ -1,0 +1,7 @@
+Running: xsim.dir/frequency_behav/xsimk.exe -simmode gui -wdb frequency_behav.wdb -simrunnum 0 -socket 57615
+Design successfully loaded
+Design Loading Memory Usage: 25384 KB (Peak: 25384 KB)
+Design Loading CPU Usage: 640 ms
+Simulation completed
+Simulation Memory Usage: 25696 KB (Peak: 25696 KB)
+Simulation CPU Usage: 306280 ms
