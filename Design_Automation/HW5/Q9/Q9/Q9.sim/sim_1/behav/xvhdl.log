@@ -1,0 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Vivado_Projects/HW5/Q9/Q9/Q9.srcs/sim_1/new/me.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity SimpleFSM
+ERROR: [VRFC 10-91] int is not declared [D:/Vivado_Projects/HW5/Q9/Q9/Q9.srcs/sim_1/new/me.vhd:39]
+ERROR: [VRFC 10-1504] unit simplefsm ignored due to previous errors [D:/Vivado_Projects/HW5/Q9/Q9/Q9.srcs/sim_1/new/me.vhd:34]
+INFO: [VRFC 10-240] VHDL file D:/Vivado_Projects/HW5/Q9/Q9/Q9.srcs/sim_1/new/me.vhd ignored due to errors
