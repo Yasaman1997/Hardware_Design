@@ -1,0 +1,32 @@
+
+*** Running vivado
+    with args -log SORTER.vds -m64 -mode batch -messageDb vivado.pb -notrace -source SORTER.tcl
+
+
+****** Vivado v2015.4 (64-bit)
+  **** SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
+  **** IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+    ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+
+source SORTER.tcl -notrace
+Command: synth_design -top SORTER -part xc7vx485tffg1157-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 452.723 ; gain = 281.402
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'SORTER' [D:/Vivado_Projects/FPGA_Project/new_project/new_project.srcs/sources_1/new/sorter.vhd:289]
+ERROR: [Synth 8-78] a value must be associated with generic KeySize [D:/Vivado_Projects/FPGA_Project/new_project/new_project.srcs/sources_1/new/sorter.vhd:54]
+ERROR: [Synth 8-78] a value must be associated with generic PointerSize [D:/Vivado_Projects/FPGA_Project/new_project/new_project.srcs/sources_1/new/sorter.vhd:55]
+ERROR: [Synth 8-78] a value must be associated with generic ListSize [D:/Vivado_Projects/FPGA_Project/new_project/new_project.srcs/sources_1/new/sorter.vhd:56]
+ERROR: [Synth 8-285] failed synthesizing module 'SORTER' [D:/Vivado_Projects/FPGA_Project/new_project/new_project.srcs/sources_1/new/sorter.vhd:289]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 452.723 ; gain = 281.402
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 0 Warnings, 0 Critical Warnings and 5 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 12 23:36:41 2017...
