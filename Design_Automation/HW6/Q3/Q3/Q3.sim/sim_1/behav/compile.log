@@ -1,0 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Design Automation/HW6/Q3/Q3/Q3.srcs/sources_1/new/ASM.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ASM
+ERROR: [VRFC 10-486] character '0' is not in type std_logic_vector [D:/Design Automation/HW6/Q3/Q3/Q3.srcs/sources_1/new/ASM.vhd:58]
+ERROR: [VRFC 10-1504] unit behavioral ignored due to previous errors [D:/Design Automation/HW6/Q3/Q3/Q3.srcs/sources_1/new/ASM.vhd:41]
+INFO: [VRFC 10-240] VHDL file D:/Design Automation/HW6/Q3/Q3/Q3.srcs/sources_1/new/ASM.vhd ignored due to errors
